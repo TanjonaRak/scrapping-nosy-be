@@ -46,7 +46,7 @@ app.use(cookieParser());
    
 
 
-app.listen(8888,()=>console.log('the serverr is running'));////PORT 
+app.listen(8088,()=>console.log('the serverr is running'));////PORT 
 
 // console.log(process.env.HOST)
 // server.start();
