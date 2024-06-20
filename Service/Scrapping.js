@@ -414,107 +414,6 @@ async function autoScroll(page) {
     // console.log(getScrapping().length)
 }
 
-// async function autoScroll(page) {
-//     try {
-        
-//         await page.evaluate(async () => {
-//             await new Promise((resolve, reject) => {
-//                 let totalHeight = 0;
-//                 let distance = 100;
-    
-//                 const scrollAndClick = async () => {
-//                     let scrollHeight = document.body.scrollHeight;
-//                     window.scrollBy(0, distance);
-//                     totalHeight += distance;
-    
-//                     // Improved selector and click logic
-//                     const propertyCards = document.querySelectorAll('div[data-testid="property-card"]');
-//                     const loadMoreButtonContainer = document.querySelector(`div[style="--bui_box_spaced_padding--s: 4;"]:nth-child(${propertyCards.length + 2})`);
-                    
-//                     if (loadMoreButtonContainer) {
-//                         const button = loadMoreButtonContainer.querySelector('button');
-//                         if (button && button.querySelector('span').innerText === "Afficher plus de résultats") {
-//                             button.click();
-//                         }
-//                     }
-    
-//                     if (totalHeight >= scrollHeight) {
-//                         clearInterval(timer);
-//                         resolve();
-//                     }
-//                 };
-    
-//                 const timer = setInterval(scrollAndClick, 500); // Adjusted interval to 500ms for stability
-//             });
-//         });
-//     } catch (error) {
-//         console.log(" ERROR ",error)
-//     }
-// }
-
-// async function autoScroll(page) {
-//     // Capture browser console logs
-//     page.on('console', msg => {
-//         for (let i = 0; i < msg.args().length; ++i)
-//             console.log(`${i}: ${msg.args()[i]}`);
-//     });
-
-//     try {
-//         await page.evaluate(async () => {
-//             const distance = 10000; // Distance to scroll each time
-//             const delay = 500; // Delay between each scroll
-
-//             await new Promise((resolve, reject) => {
-//                 let totalHeight = 0;
-//                 let lastHeight = document.body.scrollHeight;
-
-//                 const timer = setInterval(async () => {
-//                     window.scrollBy(0, distance);
-//                     totalHeight += distance;
-
-//                     // Wait a bit to let the page load
-//                     await new Promise(r => setTimeout(r, delay));
-
-//                     // Log current totalHeight
-//                     console.log(`${document.querySelectorAll('div[style="--bui_box_spaced_padding--s: 4;"]').length} Scrolled to: ${totalHeight}`);
-
-//                     // Check for the "Load more results" button
-//                     const button = document.querySelectorAll('div[style="--bui_box_spaced_padding--s: 4;"]')[document.querySelectorAll('div[style="--bui_box_spaced_padding--s: 4;"]').length-1].querySelector('button');
-
-//                     if (button.querySelector('span').innerText==="Afficher plus de résultats") {
-//                         console.log('Found load more button, clicking...');
-//                         button.click();
-//                     } else {
-//                         console.log('Load more button not found');
-//                     }
-
-//                     // Check if the page height has changed after scrolling and clicking
-//                     let newHeight = document.body.scrollHeight;
-
-//                     if (newHeight > lastHeight) {
-//                         lastHeight = newHeight;
-//                     } else {
-//                         clearInterval(timer);
-//                         resolve();
-//                     }
-
-//                     // Stop if we've scrolled to the bottom
-//                     if (totalHeight >= newHeight) {
-//                         clearInterval(timer);
-//                         resolve();
-//                     }
-
-//                     console.log(`Total Height: ${totalHeight}, New Height: ${newHeight}`);
-//                 }, delay);
-//             });
-//         });
-//     } catch (error) {
-//         console.error('Error during autoScroll:', error);
-//     }
-// }
-
-// Call the function
-// await autoScroll(page);
 
 
 
@@ -545,7 +444,7 @@ exports.ScrappingAllPrix = async (checkin, checkout,prixMin,prixMax) => {
     
             await page.goto(url, {
                 waitUntil: 'load',
-                timeout: 60000,
+                timeout: 0,
                 // { waitUntil: 'networkidle2' }
             });
             // console.log(" ERREUR 2 ***")
