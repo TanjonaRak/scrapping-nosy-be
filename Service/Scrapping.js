@@ -479,7 +479,7 @@ exports.ScrappingAllPrix = async (checkin, checkout,prixMin,prixMax) => {
                 }
             } else {
                 console.log(" MIDITRA AUTO SCROLL")
-                await autoScroll(page);
+                // await autoScroll(page);
                 console.log(b," MADE ETO ",enter)
                 // let button = document.querySelectorAll('div.c82435a4b8')[document.querySelectorAll('div.c82435a4b8').length-1].querySelector('button.a83ed08757');
                 data = await page.$$eval('div#bodyconstraint', els =>
