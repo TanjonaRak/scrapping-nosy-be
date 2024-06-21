@@ -420,7 +420,7 @@ async function autoScroll(page) {
 exports.ScrappingAllPrix = async (checkin, checkout,prixMin,prixMax) => {
     console.log('ETO 1');
     let cluster = null;
-    // cluster = await createCluster();
+    cluster = await createCluster();
     console.log('ETO 1');
 
     let justprice = false;
