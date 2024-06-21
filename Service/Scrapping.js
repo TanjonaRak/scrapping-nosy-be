@@ -418,9 +418,11 @@ async function autoScroll(page) {
 
 
 exports.ScrappingAllPrix = async (checkin, checkout,prixMin,prixMax) => {
-    // console.log('ETO 1');
+    console.log('ETO 1');
     let cluster = null;
-    cluster = await createCluster();
+    // cluster = await createCluster();
+    console.log('ETO 1');
+
     let justprice = false;
     
     // let url = "https://www.booking.com/searchresults.fr.html?ss=+Nosy+Be%2C+Madagascar&ssne=Nosy+Be&ssne_untouched=Nosy+Be&aid=304142&label=gen173rf-1FCAsokQFCDWxlLW1veWEtYmVhY2hIDVgDaJEBiAEBmAENuAEXyAEM2AEB6AEB-AEDiAIBogIOMTI3LjAuMC4xOjgwMDCoAgO4AufUsbIGwAIB0gIkYzA3YTU0NzUtNjhhMi00ZjVkLWFhNGEtMDUzZWJkMDUzMTE12AIF4AIB&no_rooms=1&highlighted_hotels=2434866&checkin="+checkin+"&checkout="+checkout+"&nflt=price%3DEUR-70-100-1";
@@ -450,7 +452,7 @@ exports.ScrappingAllPrix = async (checkin, checkout,prixMin,prixMax) => {
             // console.log(" ERREUR 2 ***")
     
             let data = [];
-            // await page.screenshot({path: 'web.png'});
+            await page.screenshot({path: 'web.png'});
             // console.log(justprice, " PRICE")
             if (justprice) {
                 // console.log('ffggg')
