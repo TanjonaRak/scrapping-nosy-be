@@ -118,7 +118,7 @@ exports.scrap = async (url, checkin, checkout, justprice) => {
                 return data;
             }
         } else {
-            // console.log('ffggg 2 ')
+            console.log(' XXX VRAI MIDITRA ATO TYYYY ')
             data = await page.$$eval('div#bodyconstraint', els =>
                 els.slice(0, 1).reduce((res, m) => {
                     let r = {}
