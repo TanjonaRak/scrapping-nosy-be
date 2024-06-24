@@ -73,13 +73,13 @@ exports.scrap = async (url, checkin, checkout, justprice) => {
             return [{ 'type': 'error', 'message': error }]
         }
         let data = [];
-        //await page.screenshot({path: 'web.png'});
+        await page.screenshot({path: 'web.png'});
         console.log(justprice, " PRICE")
         // justprice = false;
         // console.log('url 4  :    ===>>> ', url)
 
         if (justprice) {
-            // console.log('ffggg')
+            // console.log(justprice,'ffggg')
             try {
                 data = await page.$$eval('div#bodyconstraint', els =>
                     els.slice(0, 1).reduce((res, m) => {
@@ -294,7 +294,7 @@ exports.ScrappCommentaire = async (url, checkin, checkout) => {
         let data = [];
         //await page.screenshot({path: 'web.png'});
         // console.log(justprice, " PRICE")
-        if (justprice) {
+        if (justprice===true) {
             // console.log('ffggg')
             try {
                 data = await page.$$eval('div#bodyconstraint', els =>
@@ -454,7 +454,7 @@ exports.ScrappingAllPrix = async (checkin, checkout,prixMin,prixMax) => {
             let data = [];
             await page.screenshot({path: 'web.png'});
             // console.log(justprice, " PRICE")
-            if (justprice) {
+            if (justprice===true) {
                 // console.log('ffggg')
                 try {
                     data = await page.$$eval('div#bodyconstraint', els =>
