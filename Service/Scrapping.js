@@ -418,15 +418,15 @@ async function autoScroll(page) {
 
 
 exports.ScrappingAllPrix = async (checkin, checkout,prixMin,prixMax) => {
-    console.log('ETO 1');
+    // console.log('ETO 1');
     let cluster = null;
     cluster = await createCluster();
-    console.log('ETO 1');
+    // console.log('ETO 1');
 
     let justprice = false;
     
     // let url = "https://www.booking.com/searchresults.fr.html?ss=+Nosy+Be%2C+Madagascar&ssne=Nosy+Be&ssne_untouched=Nosy+Be&aid=304142&label=gen173rf-1FCAsokQFCDWxlLW1veWEtYmVhY2hIDVgDaJEBiAEBmAENuAEXyAEM2AEB6AEB-AEDiAIBogIOMTI3LjAuMC4xOjgwMDCoAgO4AufUsbIGwAIB0gIkYzA3YTU0NzUtNjhhMi00ZjVkLWFhNGEtMDUzZWJkMDUzMTE12AIF4AIB&no_rooms=1&highlighted_hotels=2434866&checkin="+checkin+"&checkout="+checkout+"&nflt=price%3DEUR-70-100-1";
-    let url = "https://www.booking.com/searchresults.fr.html?ss=+Nosy+Be%2C+Madagascar&ssne=Nosy+Be&ssne_untouched=Nosy+Be&aid=304142&label=gen173rf-1FCAsokQFCDWxlLW1veWEtYmVhY2hIDVgDaJEBiAEBmAENuAEXyAEM2AEB6AEB-AEDiAIBogIOMTI3LjAuMC4xOjgwMDCoAgO4AufUsbIGwAIB0gIkYzA3YTU0NzUtNjhhMi00ZjVkLWFhNGEtMDUzZWJkMDUzMTE12AIF4AIB&no_rooms=1&highlighted_hotels=2434866&checkin="+checkin+"&checkout="+checkout+"&nflt=price%3DEUR-"+prixMin+"-"+prixMax+"-1&order=price";
+    let url = "https://www.booking.com/searchresults.fr.html?ss=+Nosy+Be%2C+Madagascar&ssne=Nosy+Be&ssne_untouched=Nosy+Be&aid=1445132&label=gen173rf-1FCAsokQFCDWxlLW1veWEtYmVhY2hIDVgDaJEBiAEBmAENuAEXyAEM2AEB6AEB-AEDiAIBogIOMTI3LjAuMC4xOjgwMDCoAgO4AufUsbIGwAIB0gIkYzA3YTU0NzUtNjhhMi00ZjVkLWFhNGEtMDUzZWJkMDUzMTE12AIF4AIB&no_rooms=1&highlighted_hotels=2434866&checkin="+checkin+"&checkout="+checkout+"&nflt=price%3DEUR-"+prixMin+"-"+prixMax+"-1&order=price";
     console.log(url);
 
     // let url =
@@ -443,7 +443,7 @@ exports.ScrappingAllPrix = async (checkin, checkout,prixMin,prixMax) => {
     
     
             // console.log(" ERREUR 1 ***")
-    
+            console.log(url," <<<==== URL IL ");
             await page.goto(url, {
                 waitUntil: 'load',
                 timeout: 0,
@@ -489,7 +489,9 @@ exports.ScrappingAllPrix = async (checkin, checkout,prixMin,prixMax) => {
                         let r = {}
                         // let but = document.querySelectorAll('div.c82435a4b8')[99].querySelector('button.a83ed08757');
                         // r.l = document.querySelectorAll('div.efa3f4d6ac').length-1;
-                        let dataRes = document.querySelector('div[data-capla-component-boundary="b-search-web-searchresults/SearchResultsDesktop"]').children[1].children[2].children[1].children[1].children[2].querySelectorAll('div[data-testid="property-card"]');
+                        // let dataRes = document.querySelector('div[data-capla-component-boundary="b-search-web-searchresults/SearchResultsDesktop"]').children[1].children[2].children[1].children[1].children[2].querySelectorAll('div[data-testid="property-card"]');
+                        let dataRes = document.querySelectorAll('div[data-testid="property-card"]');
+
                         r.l = dataRes.length;
 
                         r.tarifAll = []
