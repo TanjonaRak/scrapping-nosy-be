@@ -443,7 +443,7 @@ exports.ScrappingAllPrix = async (checkin, checkout,prixMin,prixMax) => {
     
     
             // console.log(" ERREUR 1 ***")
-            console.log(url," <<<==== URL IL ");
+            console.log(url," <<<==== URL VRR ");
             await page.goto(url, {
                 waitUntil: 'load',
                 timeout: 0,
