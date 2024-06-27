@@ -424,9 +424,10 @@ exports.ScrappingAllPrix = async (checkin, checkout,prixMin,prixMax) => {
     // console.log('ETO 1');
 
     let justprice = false;
+    // let url = "https://www.booking.com/searchresults.fr.html?ss=+Nosy+Be%2C+Madagascar&ssne=Nosy+Be&ssne_untouched=Nosy+Be&aid=1445132&label=gen173rf-1FCAsokQFCDWxlLW1veWEtYmVhY2hIDVgDaJEBiAEBmAENuAEXyAEM2AEB6AEB-AEDiAIBogIOMTI3LjAuMC4xOjgwMDCoAgO4AufUsbIGwAIB0gIkYzA3YTU0NzUtNjhhMi00ZjVkLWFhNGEtMDUzZWJkMDUzMTE12AIF4AIB&no_rooms=1&highlighted_hotels=2434866&checkin="+checkin+"&checkout="+checkout+"&nflt=price%3DEUR-"+prixMin+"-"+prixMax+"-1&order=price";
     
     // let url = "https://www.booking.com/searchresults.fr.html?ss=+Nosy+Be%2C+Madagascar&ssne=Nosy+Be&ssne_untouched=Nosy+Be&aid=304142&label=gen173rf-1FCAsokQFCDWxlLW1veWEtYmVhY2hIDVgDaJEBiAEBmAENuAEXyAEM2AEB6AEB-AEDiAIBogIOMTI3LjAuMC4xOjgwMDCoAgO4AufUsbIGwAIB0gIkYzA3YTU0NzUtNjhhMi00ZjVkLWFhNGEtMDUzZWJkMDUzMTE12AIF4AIB&no_rooms=1&highlighted_hotels=2434866&checkin="+checkin+"&checkout="+checkout+"&nflt=price%3DEUR-70-100-1";
-    let url = "https://www.booking.com/searchresults.fr.html?ss=+Nosy+Be%2C+Madagascar&ssne=Nosy+Be&ssne_untouched=Nosy+Be&aid=1445132&label=gen173rf-1FCAsokQFCDWxlLW1veWEtYmVhY2hIDVgDaJEBiAEBmAENuAEXyAEM2AEB6AEB-AEDiAIBogIOMTI3LjAuMC4xOjgwMDCoAgO4AufUsbIGwAIB0gIkYzA3YTU0NzUtNjhhMi00ZjVkLWFhNGEtMDUzZWJkMDUzMTE12AIF4AIB&no_rooms=1&highlighted_hotels=2434866&checkin="+checkin+"&checkout="+checkout+"&nflt=price%3DEUR-"+prixMin+"-"+prixMax+"-1&order=price";
+    let url = "https://www.booking.com/searchresults.fr.html?ss=+Nosy+Be%2C+Madagascar&ssne=Nosy+Be&ssne_untouched=Nosy+Be&aid=1445132&no_rooms=1&lang=fr&checkin="+checkin+"&checkout="+checkout+"&nflt=price%3DEUR-"+prixMin+"-"+prixMax+"-1&order=price";
     console.log(url);
 
     // let url =
@@ -444,7 +445,7 @@ exports.ScrappingAllPrix = async (checkin, checkout,prixMin,prixMax) => {
     
             // console.log(" ERREUR 1 ***")
             console.log(url," <<<==== URL VRR ");
-            await page.goto( "https://www.booking.com/searchresults.fr.html?ss=+Nosy+Be%2C+Madagascar&ssne=Nosy+Be&ssne_untouched=Nosy+Be&aid=1445132&label=gen173rf-1FCAsokQFCDWxlLW1veWEtYmVhY2hIDVgDaJEBiAEBmAENuAEXyAEM2AEB6AEB-AEDiAIBogIOMTI3LjAuMC4xOjgwMDCoAgO4AufUsbIGwAIB0gIkYzA3YTU0NzUtNjhhMi00ZjVkLWFhNGEtMDUzZWJkMDUzMTE12AIF4AIB&no_rooms=1&highlighted_hotels=2434866&checkin="+checkin+"&checkout="+checkout+"&nflt=price%3DEUR-"+prixMin+"-"+prixMax+"-1&order=price", {
+            await page.goto(url, {
                 waitUntil: 'load',
                 timeout: 0,
                 // { waitUntil: 'networkidle2' }
