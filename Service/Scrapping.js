@@ -444,7 +444,7 @@ exports.ScrappingAllPrix = async (checkin, checkout,prixMin,prixMax) => {
     
             // console.log(" ERREUR 1 ***")
             console.log(url," <<<==== URL VRR ");
-            await page.goto(url, {
+            await page.goto( "https://www.booking.com/searchresults.fr.html?ss=+Nosy+Be%2C+Madagascar&ssne=Nosy+Be&ssne_untouched=Nosy+Be&aid=1445132&label=gen173rf-1FCAsokQFCDWxlLW1veWEtYmVhY2hIDVgDaJEBiAEBmAENuAEXyAEM2AEB6AEB-AEDiAIBogIOMTI3LjAuMC4xOjgwMDCoAgO4AufUsbIGwAIB0gIkYzA3YTU0NzUtNjhhMi00ZjVkLWFhNGEtMDUzZWJkMDUzMTE12AIF4AIB&no_rooms=1&highlighted_hotels=2434866&checkin="+checkin+"&checkout="+checkout+"&nflt=price%3DEUR-"+prixMin+"-"+prixMax+"-1&order=price", {
                 waitUntil: 'load',
                 timeout: 0,
                 // { waitUntil: 'networkidle2' }
