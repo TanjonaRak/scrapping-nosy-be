@@ -226,7 +226,7 @@ exports.scrap = async (url, checkin, checkout, justprice) => {
 
                 // await page.click('div.k2-hp--gallery-header button')
                 // document.querySelector('div.k2-hp--gallery-header button').click()
-                await page.waitForSelector('div.k2-hp--gallery-header button', { visible: true });
+                /*await page.waitForSelector('div.k2-hp--gallery-header button', { visible: true });
 
                 // Défilement vers l'élément
                 await page.evaluate(() => {
@@ -248,7 +248,7 @@ exports.scrap = async (url, checkin, checkout, justprice) => {
                     }))
                 albums = await albums.filter((x) => x != "")
                 //// console.log({albums})
-                data[0]["albums"] = albums
+                data[0]["albums"] = albums*/
             }
 
             //await browser.close()
