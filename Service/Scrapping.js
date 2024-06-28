@@ -46,7 +46,7 @@ exports.scrap = async (url, checkin, checkout, justprice) => {
     if (cluster) {
         await cluster.task(async ({ page, data: url }) => {
 
-            url += `?checkin=${checkin}&checkout=${checkout}&lang=fr&group_adults=2&group_children=0&no_rooms=1`
+            url += `?label=msn-aY7Iszp6gVnZlQOce3YZow-80676854031119%3Atikwd-17155439312%3Aloc-110%3Aneo%3Amtp%3Alp110%3Adec%3Aqsbooking+europe+madagascar&checkin=${checkin}&checkout=${checkout}&lang=fr&group_adults=2&group_children=0&no_rooms=1`
 
             await page.setViewport({ width: 3456, height: 2234 })
             // console.log(" ===>>> GOOO 2 ");
@@ -234,7 +234,7 @@ exports.scrap = async (url, checkin, checkout, justprice) => {
                 });
 
                 // Cliquer sur l'élément
-                await page.click('div.k2-hp--gallery-header button', { delay: 1000 });
+                await page.click('div.k2-hp--gallery-header button', { delay: 1000});
 
                 await page.screenshot({ path: 'web2.png' });
 
