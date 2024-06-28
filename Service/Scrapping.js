@@ -421,37 +421,31 @@ exports.ScrappingAllPrix = async (checkin, checkout,prixMin,prixMax) => {
     // console.log('ETO 1');
     let cluster = null;
     cluster = await createCluster();
-    // console.log('ETO 1');
-
+    //console.log('ETO 1');
+    
     let justprice = false;
     let url = "https://www.booking.com/searchresults.fr.html?ss=+Nosy+Be%2C+Madagascar&ssne=Nosy+Be&ssne_untouched=Nosy+Be&aid=1445132&label=gen173rf-1FCAsokQFCDWxlLW1veWEtYmVhY2hIDVgDaJEBiAEBmAENuAEXyAEM2AEB6AEB-AEDiAIBogIOMTI3LjAuMC4xOjgwMDCoAgO4AufUsbIGwAIB0gIkYzA3YTU0NzUtNjhhMi00ZjVkLWFhNGEtMDUzZWJkMDUzMTE12AIF4AIB&no_rooms=1&highlighted_hotels=2434866&checkin="+checkin+"&checkout="+checkout+"&nflt=price%3DEUR-"+prixMin+"-"+prixMax+"-1&order=price";
-    
     // let url = "https://www.booking.com/searchresults.fr.html?ss=+Nosy+Be%2C+Madagascar&ssne=Nosy+Be&ssne_untouched=Nosy+Be&aid=304142&label=gen173rf-1FCAsokQFCDWxlLW1veWEtYmVhY2hIDVgDaJEBiAEBmAENuAEXyAEM2AEB6AEB-AEDiAIBogIOMTI3LjAuMC4xOjgwMDCoAgO4AufUsbIGwAIB0gIkYzA3YTU0NzUtNjhhMi00ZjVkLWFhNGEtMDUzZWJkMDUzMTE12AIF4AIB&no_rooms=1&highlighted_hotels=2434866&checkin="+checkin+"&checkout="+checkout+"&nflt=price%3DEUR-"+prixMin+"-"+prixMax+"-1&order=price";
     // let url = "https://www.booking.com/searchresults.fr.html?ss=Madagascar&ssne=Madagascar&ssne_untouched=Madagascaraid=1445132&label=gen173rf-1FCAsokQFCDWxlLW1veWEtYmVhY2hIDVgDaJEBiAEBmAENuAEXyAEM2AEB6AEB-AEDiAIBogIOMTI3LjAuMC4xOjgwMDCoAgO4AufUsbIGwAIB0gIkYzA3YTU0NzUtNjhhMi00ZjVkLWFhNGEtMDUzZWJkMDUzMTE12AIF4AIB&no_rooms=1&highlighted_hotels=2434866&checkin="+checkin+"&checkout="+checkout+"&nflt=price%3DEUR-"+prixMin+"-"+prixMax+"-1&order=price";
     console.log(url);
 
     // let url =
     if(cluster){
-        await cluster.task(async ({ page, data: url }) => {
-
-            await page.setViewport({ width: 3456, height: 2234 })
+        await cluster.task(async ({ page,data: url }) => {
+            await page.setViewport({ width:3456, height: 2234 })
             // console.log(" ===>>> GOOO 2 ");
             // await page.setUserAgent('Mozilla/5.0 (Macintosh; Intel Mac OS X 10_14_0) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/84.0.4147.125 Safari/537.36')
             await page.setUserAgent('Mozilla/5.0 (Macintosh; Intel Mac OS X 10_14_0) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/84.0.4147.125 Safari/537.36')
             // console.log(" ===>>> GOOO 3");
-    
             // console.log('url  :    ===>>> ', url )
-    
-    
             // console.log(" ERREUR 1 ***")
             // console.log(url," <<<==== URL VRR ");
-            await page.goto("https://www.booking.com/searchresults.fr.html?ss=+Nosy+BE%2C+Madagascar", {
+            await page.goto("https://www.booking.com/searchresults.fr.html?ss=+Nosy+BE%2C+Madagascar&ssne=Nosy+Be&ssne_untouched=Nosy+Be",{
                 waitUntil: 'load',
                 timeout: 0,
                 // { waitUntil: 'networkidle2' }
             });
             // console.log(" ERREUR 2 ***")
-    
             let data = [];
             await page.screenshot({path: 'web.png'});
             // console.log(justprice, " PRICE")
@@ -462,7 +456,6 @@ exports.ScrappingAllPrix = async (checkin, checkout,prixMin,prixMax) => {
                         els.slice(0, 1).reduce((res, m) => {
                             let r = {}
                             r.comms = [];
-                            
                             for (let i = 0; i < 10; i++) {
                                 let e = {};
                                 e.commentaire = document.querySelectorAll('ul.fc49408fea li')[i].querySelectorAll('span')[1]?.innerText;
