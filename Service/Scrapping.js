@@ -177,7 +177,7 @@ exports.scrap = async (url, checkin, checkout, justprice) => {
                     // r. l = eq
                     // let Leq = r.l;
                     // r.eqsAll = []
-                    let equisAll = document.querySelectorAll('div[data-testid="property-section--content"]')[2].children[1].children;
+                   /*let equisAll = document.querySelectorAll('div[data-testid="property-section--content"]')[2].children[1].children;
                     for (let i = 0; i < equisAll.length; i++) {
                         let equis = document.querySelectorAll('div[data-testid="property-section--content"]')[2].children[1].children[i].innerText.split('\n');
                         for(let n = 1;n<equis.length;n++){
@@ -192,7 +192,7 @@ exports.scrap = async (url, checkin, checkout, justprice) => {
                             // e.icon = "icon.png";
                             // r["d"+i] = e;
                             // r.eqsAll.push(e);
-                    }
+                    }*/
                         // r.etoile = 0;
                         // let EtoileHT = $(m).find('span.a455730030');
                     // r.PL2  =document.querySelectorAll('div[data-testid="property-section--content"]')[2].innerText;
