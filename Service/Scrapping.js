@@ -440,7 +440,7 @@ exports.ScrappingAllPrix = async (checkin, checkout,prixMin,prixMax) => {
             // console.log('url  :    ===>>> ', url )
             // console.log(" ERREUR 1 ***")
             // console.log(url," <<<==== URL VRR ");
-            await page.goto("https://www.booking.com/searchresults.fr.html?ss=+Nosy+BE%2C+Madagascar&ssne=Nosy+Be",{
+            await page.goto(url,{
                 waitUntil: 'load',
                 timeout: 0,
                 // { waitUntil: 'networkidle2' }
