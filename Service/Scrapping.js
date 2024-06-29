@@ -203,30 +203,30 @@ exports.scrap = async (url, checkin, checkout, justprice) => {
 
                 // await page.click('div.k2-hp--gallery-header button')
                 // document.querySelector('div.k2-hp--gallery-header button').click()
-                // await page.waitForSelector('div.k2-hp--gallery-header button', { visible: true });
-                // console.log(" LOG ====>>> : ")
-                // await page.screenshot({ path: 'web3.png' });
+                await page.waitForSelector('div.k2-hp--gallery-header button', { visible: true });
+                console.log(" LOG ====>>> : ")
+                await page.screenshot({ path: 'web3.png' });
 
-                // await page.evaluate(() => {
-                //     document.querySelector('div.k2-hp--gallery-header button').scrollIntoView();
-                // });
+                await page.evaluate(() => {
+                    document.querySelector('div.k2-hp--gallery-header button').scrollIntoView();
+                });
 
-                // // Cliquer sur l'élément
-                // await page.click('div.k2-hp--gallery-header button', { delay: 100});
+                // Cliquer sur l'élément
+                await page.click('div.k2-hp--gallery-header button', { delay: 200});
 
-                // await page.screenshot({ path: 'web2.png' });
+                await page.screenshot({ path: 'web2.png' });
 
-                // await page.waitForSelector('.bh-photo-modal-opened')
+                await page.waitForSelector('.bh-photo-modal-opened')
 
-                // console.log(" VITA INI 3")
+                console.log(" VITA INI 3")
 
-                // let albums = await page.$$eval('a.bh-photo-modal-grid-item-wrapper img', els =>
-                //     els.map((x) => {
-                //         return { photo: x.src }
-                //     }))
-                // albums = await albums.filter((x) => x != "")
-                // //// console.log({albums})
-                // data[0]["albums"] = albums
+                let albums = await page.$$eval('a.bh-photo-modal-grid-item-wrapper img', els =>
+                    els.map((x) => {
+                        return { photo: x.src }
+                    }))
+                albums = await albums.filter((x) => x != "")
+                //// console.log({albums})
+                data[0]["albums"] = albums
             }
             //await browser.close()
             // console.log("scrapping completed...")
