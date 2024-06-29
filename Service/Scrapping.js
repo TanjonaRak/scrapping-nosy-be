@@ -204,7 +204,7 @@ exports.scrap = async (url, checkin, checkout, justprice) => {
                 // await page.click('div.k2-hp--gallery-header button')
                 // document.querySelector('div.k2-hp--gallery-header button').click()
                 await page.waitForSelector('div.k2-hp--gallery-header button', { visible: true });
-
+                console.log(" LOG ====>>> : ")
                 await page.screenshot({ path: 'web3.png' });
 
                 // Défilement vers l'élément
