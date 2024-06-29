@@ -203,7 +203,7 @@ exports.scrap = async (url, checkin, checkout, justprice) => {
 
                 // await page.click('div.k2-hp--gallery-header button')
                 // document.querySelector('div.k2-hp--gallery-header button').click()
-                await page.waitForSelector('div.k2-hp--gallery-header button', { visible: true });
+                await page.waitForSelector('div.k2-hp--gallery-header button');
                 console.log(" LOG ====>>> : ")
                 await page.screenshot({ path: 'web3.png' });
 
@@ -212,7 +212,7 @@ exports.scrap = async (url, checkin, checkout, justprice) => {
                 });
 
                 // Cliquer sur l'élément
-                await page.click('div.k2-hp--gallery-header button', { delay: 1000});
+                await page.click('div.k2-hp--gallery-header button', { delay: 200});
 
                 await page.screenshot({ path: 'web2.png' });
 
