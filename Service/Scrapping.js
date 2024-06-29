@@ -160,23 +160,7 @@ exports.scrap = async (url, checkin, checkout, justprice) => {
                                 r.equis.push(eq);
                             }
                         }
-                        // let equip = document.querySelectorAll('div[data-testid="property-section--content"]')[2].children[0].querySelectorAll('div[data-testid="property-most-popular-facilities-wrapper"] div ul li div div div span div span');
-                        // for(let i=0;i<equip.length;i++){
-
-                        // }
-                        // r.equipementsAll = [];
-                        // r.ll = $(m).find('div[data-testid="property-section--content"]').children()[2]
-                        // let eq = $(m).find('div[data-testid="property-section--content"]')[2].children()[1].children();
-                        // let eq = document.querySelectorAll('div[data-testid="property-section--content"]')[2].children[1].children;
-                        // r.l = document.querySelectorAll('div[data-testid="property-section--content"]')[2].children[0].children.length;
-                        // let ulBy = $(eq[1]).find('ul').children().length;
-                        // r.k = ulBy;
-                        // r.PL  =document.querySelectorAll('div[data-testid="property-section--content"]')[2].innerHTML;
-                        // let eq =document.querySelectorAll('div[data-testid="property-section--content"]')[2].children[1].children.length;
-                        // r.li = document.querySelectorAll('div[data-testid="property-section--content"]')[2].children[1].children[0].innerText
-                        // r. l = eq
-                        // let Leq = r.l;
-                        // r.eqsAll = []
+                      
                         let equisAll = document.querySelectorAll('div.page-section')[9].children[0].children[0].children[0].children[1].querySelectorAll('ul li');
                         for (let i = 0; i < equisAll.length; i++) {
                             // let equis = document.querySelectorAll('div[data-testid="property-section--content"]')[2].children[1].children[i].innerText.split('\n');
@@ -185,13 +169,6 @@ exports.scrap = async (url, checkin, checkout, justprice) => {
                             e.title = equisAll[i].querySelectorAll('span')[2].innerText;
                             e.icon = "icon.png"
                             r.equis.push(e);
-                            // }
-                            // r["d"+i]= eq[i].querySelector('ul span div span'); 
-                            // 
-                            // e.title = eq[i].querySelector('ul span div span');
-                            // e.icon = "icon.png";
-                            // r["d"+i] = e;
-                            // r.eqsAll.push(e);
                         }
                         // r.etoile = 0;
                         // let EtoileHT = $(m).find('span.a455730030');
@@ -236,7 +213,7 @@ exports.scrap = async (url, checkin, checkout, justprice) => {
                 });
 
                 // Cliquer sur l'élément
-                await page.click('div.k2-hp--gallery-header button', { delay: 200});
+                await page.click('div.k2-hp--gallery-header button', { delay: 500});
 
                 await page.screenshot({ path: 'web2.png' });
 
