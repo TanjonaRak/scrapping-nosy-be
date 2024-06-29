@@ -207,7 +207,6 @@ exports.scrap = async (url, checkin, checkout, justprice) => {
                 console.log(" LOG ====>>> : ")
                 await page.screenshot({ path: 'web3.png' });
 
-                // Défilement vers l'élément
                 await page.evaluate(() => {
                     document.querySelector('div.k2-hp--gallery-header button').scrollIntoView();
                 });
@@ -229,7 +228,6 @@ exports.scrap = async (url, checkin, checkout, justprice) => {
                 //// console.log({albums})
                 data[0]["albums"] = albums
             }
-
             //await browser.close()
             // console.log("scrapping completed...")
             return data[0]
