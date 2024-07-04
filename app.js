@@ -10,7 +10,7 @@ app.io = io;
 const bodyParser=require('body-parser');
 const cors=require('cors');
 // app.use(cors({origin:'http://localhost:4200'}));
-app.use(cors({origin:[process.env.CORS_FRONT,'http://127.0.0.1:8000',"https://destination-nosybe.com"]}))
+app.use(cors({origin:[process.env.CORS_FRONT,'http://127.0.0.1:8000',"https://destination-nosybe.com","https://back-nosybe.aiolia.us"]}))
 app.use(bodyParser.json());
 const routes = require('./route')
 
