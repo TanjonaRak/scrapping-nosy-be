@@ -160,16 +160,23 @@ exports.scrap = async (url, checkin, checkout, justprice) => {
                                 r.equis.push(eq);
                             }
                         }
+
+                        
+
+                        ///ICI HTTPS ETO 
                       
-                        let equisAll = document.querySelectorAll('div.page-section')[9].children[0].children[0].children[0].children[1].querySelectorAll('ul li');
-                        for (let i = 0; i < equisAll.length; i++) {
-                            // let equis = document.querySelectorAll('div[data-testid="property-section--content"]')[2].children[1].children[i].innerText.split('\n');
-                            // for(let n = 1;n<equis.length;n++){
-                            let e = {};
-                            e.title = equisAll[i].querySelectorAll('span')[2].innerText;
-                            e.icon = "icon.png"
-                            r.equis.push(e);
-                        }
+                        // let equisAll = document.querySelectorAll('div.page-section')[9].children[0].children[0].children[0].children[1].querySelectorAll('ul li');
+                        // for (let i = 0; i < equisAll.length; i++) {
+                        //     // let equis = document.querySelectorAll('div[data-testid="property-section--content"]')[2].children[1].children[i].innerText.split('\n');
+                        //     // for(let n = 1;n<equis.length;n++){
+                        //     let e = {};
+                        //     e.title = equisAll[i].querySelectorAll('span')[2].innerText;
+                        //     e.icon = "icon.png"
+                        //     r.equis.push(e);
+                        // }
+
+
+
                         // r.etoile = 0;
                         // let EtoileHT = $(m).find('span.a455730030');
                         // r.PL2  =document.querySelectorAll('div[data-testid="property-section--content"]')[2].innerText;
@@ -179,7 +186,7 @@ exports.scrap = async (url, checkin, checkout, justprice) => {
                         r.g = $(m).find('span[class="hp__hotel_ratings pp-header__badges pp-header__badges--combined"]')[0];
                         // let GPSpan = $(EtoileHT[0]).find('span').children();
                         r.etoile = document.querySelectorAll('span[class="hp__hotel_ratings pp-header__badges pp-header__badges--combined"]')[0].querySelectorAll('span div')[2].children[0].children.length
-                        r.note = document.querySelectorAll('div[data-testid="review-score-right-component"] div')[1].innerText.split(' ')[document.querySelectorAll('div[data-testid="review-score-right-component"] div')[1].innerText.split(' ').length - 1]
+                        r.note = document.querySelectorAll('div[data-testid="review-score-right-component"] div')[1]?.innerText.split(' ')[document.querySelectorAll('div[data-testid="review-score-right-component"] div')[1].innerText.split(' ').length - 1]
                         // .innerText.split(' ')[document.querySelectorAll('div[data-testid="review-score-right-component"]')[0].children[0].innerText.split(' ').length-1];
                         // r.note = document.querySelectorAll('div.ac4a7896c7')[0].innerText.split(' ')[document.querySelectorAll('div.ac4a7896c7')[0].innerText.split(' ').length - 1];
                         // r.avis = document.querySelectorAll('span.a3b8729ab1')[1].innerText.split(' ')[0];
@@ -203,30 +210,32 @@ exports.scrap = async (url, checkin, checkout, justprice) => {
 
                 // await page.click('div.k2-hp--gallery-header button')
                 // document.querySelector('div.k2-hp--gallery-header button').click()
-                // await page.waitForSelector('div.k2-hp--gallery-header button');
+                await page.waitForSelector('div.bh-photo-grid a');
                 // console.log(" LOG ====>>> : ")
                 
-                // await page.evaluate(() => {
-                //     document.querySelector('div.k2-hp--gallery-header button').scrollIntoView();
+                await page.evaluate(() => {
+                    document.querySelector('div.k2-hp--gallery-header button').scrollIntoView();
                     
-                // });
+                });
                 // // console.log(await page.find('div.k2-hp--gallery-header button').text()," <<====")
                 // // await page.screenshot({ path: 'web3.png' });
                 // await page.click('div.k2-hp--gallery-header button',{delay:200});
+                // document.querySelectorAll('div.bh-photo-grid a')[0].click()
+                await page.click('div.bh-photo-grid a');
 
-                // await page.screenshot({ path: 'web2.png' });
+                await page.screenshot({ path: 'web2.png' });
 
-                // await page.waitForSelector('.bh-photo-modal-opened')
+                await page.waitForSelector('.bh-photo-modal-opened')
 
                 // console.log(" VITA INI 3")
 
-                // let albums = await page.$$eval('a.bh-photo-modal-grid-item-wrapper img', els =>
-                //     els.map((x) => {
-                //         return { photo: x.src }
-                //     }))
-                // albums = await albums.filter((x) => x != "")
-                // //// console.log({albums})
-                // data[0]["albums"] = albums
+                let albums = await page.$$eval('a.bh-photo-modal-grid-item-wrapper img', els =>
+                    els.map((x) => {
+                        return { photo: x.src }
+                    }))
+                albums = await albums.filter((x) => x != "")
+                //// console.log({albums})
+                data[0]["albums"] = albums
             }
             //await browser.close()
             // console.log("scrapping completed...")
