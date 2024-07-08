@@ -1,5 +1,5 @@
 =>https://www.booking.com/hotel/mg/heure-bleue.fr.html
-=>https://www.booking.com/hotel/mg/nosy-be-sun.fr.html
+X =>https://www.booking.com/hotel/mg/nosy-be-sun.fr.html
 =>https://www.booking.com/hotel/mg/ocean-beach-sakatia.fr.html
 =>https://www.booking.com/hotel/mg/le-grand-bleu.fr.html
 =>https://www.booking.com/hotel/mg/manga-soa-lodge.fr.html
@@ -12,7 +12,7 @@
 =>https://www.booking.com/hotel/mg/villa-palissandre-ambatoloaka.fr.html
 =>https://www.booking.com/hotel/mg/o-bleu.fr.html
 =>https://www.booking.com/hotel/mg/fleurs-d-39-ylang.fr.html
-=>https://www.booking.com/hotel/mg/la-bombonera.fr.html
+X =>https://www.booking.com/hotel/mg/la-bombonera.fr.html
 =>https://www.booking.com/hotel/mg/concept-nosybe.fr.html
 =>https://www.booking.com/hotel/mg/villa-les-cocotiers.fr.html
 =>https://www.booking.com/hotel/mg/sakado.fr.html
